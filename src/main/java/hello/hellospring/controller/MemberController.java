@@ -29,6 +29,11 @@ public class MemberController {
     @Autowired
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
+        
+        // Proxy가 주입되는지 console 확인
+        System.out.println("memberService = " + memberService.getClass());
+        // memberService = class hello.hellospring.service.MemberService$$EnhancerBySpringCGLIB$$4c64f2ee
+        // CGLIB은 memberService를 복제해서 코드를 조작하는 기술
     }
 
     @GetMapping("/members/new")
